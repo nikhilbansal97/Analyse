@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_200"
+    tools:context="com.android.nikhil.analyse.activities.MainActivity">
+
+    <com.github.glomadrian.grav.GravView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        app:animationGenerators="@array/BubbleAnimations"
+        app:array_colors="@array/bubble"
+        app:ball_from_size="10dp"
+        app:ball_to_size="30dp"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:regular_cell_size="300"
+        app:regular_variance="200"
+        app:shake_direction="vertical"
+        app:shake_max_duration="20000"
+        app:shake_min_duration="5000"
+        app:shake_variance="500dp"
+        app:side_to_side_direction="leftToRight"
+        app:side_to_side_max_duration="10000"
+        app:side_to_side_min_duration="5000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/inputText"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="?actionBarSize"
+                android:contentDescription="@string/des_editText"
+                android:hint="@string/text_to_analyze"
+                android:textColor="@color/white_200"
+                android:textColorHint="@color/white_200" />
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/analyzeButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/inputText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/analyzeButtonDescription"
+                android:elevation="12dp"
+                android:text="@string/analyze"
+                app:cb_color="@color/colorAccent"
+                app:cb_pressedRingWidth="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/analyzeButton"
+                android:gravity="center"
+                android:contentDescription="@string/tap_to_analyze"
+                android:text="@string/tap_to_analyze"
+                android:textColor="@color/white_200"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SpinKitView.Small.ThreeBounce"
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible"
+            android:contentDescription="@string/loader"
+            android:layout_gravity="center_vertical"
+            android:foregroundGravity="center_vertical"/>
+
+        <ScrollView
+            android:id="@+id/resultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textJoy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white_200"
+                    android:text="@string/joy" />
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/progressJoy"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/textJoy"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:elevation="10dp"
+                    app:rcBackgroundColor="#E0E0E0"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcMax="1.0"
+                    app:rcProgress="0.5"
+                    app:rcProgressColor="#5eba24"
+                    app:rcRadius="5dp"
+                    app:rcReverse="false" />
+
+                <TextView
+                    android:id="@+id/textAngry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progressJoy"
+                    android:textColor="@color/white_200"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/angry" />
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/progressAngry"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/textAngry"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:elevation="10dp"
+                    app:rcBackgroundColor="#E0E0E0"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcMax="1.0"
+                    app:rcProgress="0.5"
+                    app:rcProgressColor="#F44336"
+                    app:rcRadius="5dp"
+                    app:rcReverse="false" />
+
+                <TextView
+                    android:id="@+id/textSad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progressAngry"
+                    android:textStyle="bold"
+                    android:textColor="@color/white_200"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sad" />
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/progressSad"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/textSad"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:elevation="10dp"
+                    app:rcBackgroundColor="#E0E0E0"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcMax="1.0"
+                    app:rcProgress="0.5"
+                    app:rcProgressColor="#795548"
+                    app:rcRadius="5dp"
+                    app:rcReverse="false" />
+
+                <TextView
+                    android:id="@+id/textFear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progressSad"
+                    android:textStyle="bold"
+                    android:textColor="@color/white_200"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/fear" />
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/progressFear"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/textFear"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:elevation="10dp"
+                    app:rcBackgroundColor="#E0E0E0"
+                    app:rcBackgroundPadding="2dp"
+                    app:rcMax="1.0"
+                    app:rcProgress="0.5"
+                    app:rcProgressColor="#607D8B"
+                    app:rcRadius="5dp"
+                    app:rcReverse="false" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white_200"
+                    android:layout_below="@id/progressFear"
+                    android:layout_margin="20dp"
+                    android:textSize="16sp"
+                    tools:text="@string/analysis" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/entityContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    android:visibility="gone"
+                    android:layout_below="@id/textView"
+                    android:background="@color/white_200"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="4dp">
+
+                    <TextView
+                        android:id="@+id/entityText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20sp"
+                        android:textColor="@color/dark_grey"
+                        android:background="@color/white_200"
+                        android:padding="10dp"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/conceptContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    android:visibility="gone"
+                    android:layout_below="@id/entityContainer"
+                    android:background="@color/white_200"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="4dp">
+
+                    <TextView
+                        android:id="@+id/conceptText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20sp"
+                        android:textColor="@color/dark_grey"
+                        android:background="@color/white_200"
+                        android:padding="10dp"/>
+
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="4dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"/>
+
+                <TextView
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:text="@string/app_name"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white_200"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+</RelativeLayout>

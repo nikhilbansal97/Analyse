@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">Analyse</string>
+    <string name="text_to_analyze">Text to Analyze</string>
+    <string name="analyze">Analyze</string>
+    <string name="analysis">Analysis</string>
+    <string name="des_editText">Edit text for user input</string>
+    <string name="analyzeButtonDescription">Button to start analyzing text</string>
+    <string name="history">History</string>
+    <string name="docs">\n
+        <b>Natural language processing (NLP)</b> is a field of computer science, artificial intelligence concerned with the     interactions between computers and human (natural) languages, and, in particular, concerned with programming computers to fruitfully process large natural language data.
+\n\n\n
+    Challenges in natural language processing frequently involve speech recognition, natural language understanding, and natural language generation.\n\n
+        <b>With IBM Watson™ Natural Language Understanding</b>, developers can analyze semantic features of text input, including categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment.\n\n\n
+        <b>Features :</b>\n
+Send requests to the API with text, HTML, or a public URL, and specify one or more of the following features to analyze:\n\n\n
+        <b>Categories</b>\n
+Categorize your content using a five-level classification hierarchy. View the complete list of categories here. For example:
+\n\n
+Input
+
+url: "www.cnn.com"
+
+Response
+
+/news
+/art and entertainment
+/movies and tv/television
+/news
+/international news
+\n\n
+        <b>Concepts</b>\n
+Identify high-level concepts that aren't necessarily directly referenced in the text. For example:
+\n\n
+Input
+\n
+text: "Natural Language Understanding uses natural language processing to analyze text."
+\n
+Response
+
+<b>Emotion</b>\n
+Analyze emotion conveyed by specific target phrases or by the document as a whole. You can also enable emotion analysis for entities and keywords that are automatically detected by the service. For example:
+\n
+Input
+\n
+text: "I love apples, but I hate oranges."
+targets: "apples", and "oranges"
+
+Response
+
+"apples": joy
+"oranges": anger
+
+<b>Entities</b>\n
+Find people, places, events, and other types of entities mentioned in your content. View the complete list of entity types and subtypes here. For example:
+\n
+Input
+\n
+text: "IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries."
+\n
+Response
+\n
+IBM: Company
+Armonk: Location
+New York: Location
+United States: Location
+
+</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="tap_to_analyze">Tap to Analyze</string>
+    <string name="alert_yes">YES</string>
+    <string name="alert_no">NO</string>
+    <string name="loader">Loader</string>
+    <string name="joy">Joy</string>
+    <string name="angry">Angry</string>
+    <string name="sad">Sad</string>
+    <string name="fear">Fear</string>
+    <string name="name_of_text">Name of Text</string>
+    <string name="analysis_of_text">Analysis of Text</string>
+    <string name="delete">Delete</string>
+    <string name="delete_message">Are you sure?</string>
+    <string name="tracker_category">Action</string>
+    <string name="tracker_action">Analyze</string>
+    <string name="not_enough_length">Enter some more text!</string>
+    <string name="no_text_entered">Enter text to analyze!</string>
+    <string name="no_internet">No Internet Available</string>
+    <string name="constant_entities">entities</string>
+    <string name="constant_concepts">concepts</string>
+    <string name="constant_anaylized_bool">analized</string>
+    <string name="menu_docs">Docs</string>
+    <string name="refresh_description">Refresh button to update the widget</string>
+</resources>

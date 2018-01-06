@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/dark_grey</item>
+        <item name="android:popupTheme" tools:targetApi="lollipop">@style/Theme.AppCompat.Light</item>
+        <item name="android:windowExitTransition" tools:targetApi="m">@transition/explode</item>
+        <item name="android:windowContentTransitions" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="HistoryTheme" parent="Theme.AppCompat.Light.DarkActionBar" xmlns:tools="http://schemas.android.com/tools">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowEnterTransition" tools:targetApi="m">@android:transition/slide_left</item>
+        <item name="android:windowContentTransitions" tools:targetApi="m">true</item>
+    </style>
+</resources>
