@@ -47,8 +47,8 @@ import kotlinx.android.synthetic.main.activity_main.toolbar
 
 class MainActivity : AppCompatActivity() {
 
-  val NLP_USERNAME = "YOUR-USERNAME"
-  val NLP_PASSWORD = "YOUR-PASSWORD"
+  private val NLP_USERNAME = "YOUR-USERNAME"
+  private val NLP_PASSWORD = "YOUR-PASSWORD"
 
   lateinit var tracker: Tracker
   var mEntities: String? = ""

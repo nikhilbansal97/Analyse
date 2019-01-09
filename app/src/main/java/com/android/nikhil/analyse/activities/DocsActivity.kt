@@ -15,7 +15,7 @@ class DocsActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_docs)
 
-    docsTextView.text = getString(R.string.docs)
+    docsTextView.text = "Docs"
 
     val adRequest = AdRequest.Builder()
         .build()
